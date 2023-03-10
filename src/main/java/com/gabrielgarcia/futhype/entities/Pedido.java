@@ -1,6 +1,8 @@
 package com.gabrielgarcia.futhype.entities;
 
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -10,6 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -30,6 +33,9 @@ public class Pedido {
 	
 	@OneToOne(mappedBy = "pedido", cascade = CascadeType.ALL)
 	private Pagamento pagamento;
+	
+	@OneToMany(mappedBy = "id.pedido")
+	private Set<PedidoItem> itens = new HashSet<>();
 	
 	public Pedido() {}
 
