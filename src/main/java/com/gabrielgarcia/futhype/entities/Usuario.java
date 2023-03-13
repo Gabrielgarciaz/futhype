@@ -28,7 +28,7 @@ public class Usuario implements Serializable {
 	@Column(unique = true)
 	private String email;
 	private String telefone;
-	private LocalDate dataNascimento;
+	private LocalDate data_nascimento;
 	private String senha;
 	
 	@OneToMany(mappedBy = "cliente")
@@ -36,12 +36,12 @@ public class Usuario implements Serializable {
 	
 	public Usuario(){}
 	
-	public Usuario(Long id, String nome, String email, String telefone, LocalDate dataNascimento, String senha) {
+	public Usuario(Long id, String nome, String email, String telefone, LocalDate data_nascimento, String senha) {
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.telefone = telefone;
-		this.dataNascimento = dataNascimento;
+		this.data_nascimento = data_nascimento;
 		this.senha = senha;
 	}
 
@@ -78,11 +78,11 @@ public class Usuario implements Serializable {
 	}
 
 	public LocalDate getDataNascimento() {
-		return dataNascimento;
+		return data_nascimento;
 	}
 
-	public void setDataNascimento(LocalDate dataNascimento) {
-		this.dataNascimento = dataNascimento;
+	public void setDataNascimento(LocalDate data_nascimento) {
+		this.data_nascimento = data_nascimento;
 	}
 
 	public String getSenha() {
@@ -117,7 +117,7 @@ public class Usuario implements Serializable {
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", nome=" + nome + ", email=" + email + ", telefone=" + telefone
-				+ ", dataNascimento=" + dataNascimento + ", senha=" + senha + "]";
+				+ ", data_nascimento=" + data_nascimento + ", senha=" + senha + "]";
 	}	
 	
 }

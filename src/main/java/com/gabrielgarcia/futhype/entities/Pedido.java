@@ -2,6 +2,7 @@ package com.gabrielgarcia.futhype.entities;
 
 import java.time.Instant;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
@@ -40,7 +41,6 @@ public class Pedido {
 	public Pedido() {}
 
 	public Pedido(Long id, Instant momento, PedidoStatus status, Usuario cliente, Pagamento pagamento) {
-		super();
 		this.id = id;
 		this.momento = momento;
 		this.status = status;
@@ -86,6 +86,14 @@ public class Pedido {
 
 	public void setPagamento(Pagamento pagamento) {
 		this.pagamento = pagamento;
+	}
+
+	public Set<PedidoItem> getItens() {
+		return itens;
+	}
+	
+	public List<Produto> getProdutos(){
+		return itens.stream().map(x -> x.getProduto()).toList();
 	}
 	
 }

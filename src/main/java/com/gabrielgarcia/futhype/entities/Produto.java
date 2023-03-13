@@ -1,6 +1,7 @@
 package com.gabrielgarcia.futhype.entities;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.Column;
@@ -96,4 +97,8 @@ public class Produto {
 		return itens;
 	}
 	
+	public List<Pedido> getPedidos(){
+		return itens.stream().map(x -> x.getPedido()).toList();
+				
+	}
 }
