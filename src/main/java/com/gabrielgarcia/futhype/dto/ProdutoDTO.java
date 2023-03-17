@@ -9,7 +9,6 @@ public class ProdutoDTO {
 	private Double preco;
 	private String imgUrl;
 
-	public ProdutoDTO (){}
 
 	public ProdutoDTO(Long id, String nome, String descricao, Double preco, String img_url) {
 		this.id = id;
