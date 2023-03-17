@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +19,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.gabrielgarcia.futhype.dto.ProdutoDTO;
 import com.gabrielgarcia.futhype.services.ProdutoService;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/produtos")
@@ -39,14 +42,14 @@ public class ProdutoController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<ProdutoDTO> insert(@RequestBody ProdutoDTO dto) {
+	public ResponseEntity<ProdutoDTO> insert(@Valid @RequestBody ProdutoDTO dto) {
 		dto = service.insert(dto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
 		return ResponseEntity.created(uri).body(dto);
 	}
 	
-	@PostMapping(value = "/{id}")
-	public ResponseEntity<ProdutoDTO> update(@PathVariable Long id, @RequestBody ProdutoDTO dto) {
+	@PutMapping(value = "/{id}")
+	public ResponseEntity<ProdutoDTO> update(@PathVariable Long id, @Valid @RequestBody ProdutoDTO dto) {
 		dto = service.update(id, dto);
 		return ResponseEntity.ok(dto);
 	}

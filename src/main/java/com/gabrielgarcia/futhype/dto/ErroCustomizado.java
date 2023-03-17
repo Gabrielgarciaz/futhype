@@ -2,14 +2,14 @@ package com.gabrielgarcia.futhype.dto;
 
 import java.time.Instant;
 
-public class CustomError {	
+public class ErroCustomizado {	
 	private Instant timestamp;
 	private Integer status;
 	private String error;
 	private String path;
 	
 	
-	public CustomError(Instant timestamp, Integer status, String error, String path) {
+	public ErroCustomizado(Instant timestamp, Integer status, String error, String path) {
 		this.timestamp = timestamp;
 		this.status = status;
 		this.error = error;
