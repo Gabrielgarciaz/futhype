@@ -1,13 +1,16 @@
 package com.gabrielgarcia.futhype.entities;
 
+import java.io.Serializable;
+
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_pedido_item")
-public class PedidoItem {
-	
+public class PedidoItem  implements Serializable{
+	private static final long serialVersionUID = 1L;
+
 	@EmbeddedId
 	private PedidoItemPK id = new PedidoItemPK();
 	
